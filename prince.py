@@ -156,7 +156,7 @@ def open_chatgpt():
     webbrowser.open(url)
 
 def news():
-    main_url= "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=a6e4c31abb634d1ab93d7f88f2f9b782"
+    main_url= "Your API _ KEY"
     main_page = requests.get(main_url).json()
     articles = main_page["articles"]
     head=[]
@@ -169,7 +169,7 @@ def news():
     # DEFINING PDF REDADER FUNCTION FOR READING THE PDF " IMPORT PYPDF2"
 
 def pdf_reader():
-    book = open("akash1.pdf", "rb")
+    book = open("YOUR PDF_FILE", "rb")
     pdfReader = PyPDF2.PdfReader(book)
     pages = len(pdfReader.pages)
     speak(f"Total number of pages in this book: {pages}")
@@ -183,7 +183,7 @@ def pdf_reader():
 
 
 def convert_currency(amount, from_currency, to_currency):
-    app_id = 'cd319aa65ed8420fb575838f212e6029'
+    app_id = 'Your API_KEY'
     url = f"https://openexchangerates.org/api/latest.json?app_id={app_id}&symbols={from_currency},{to_currency}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -198,7 +198,7 @@ def convert_currency(amount, from_currency, to_currency):
     # DEFINING WEATHER FUNCTION
 
 def getWeather(city):
-    api_key = "0703a36cb50e64b35c607c82efc951c3"
+    api_key = "Your API_KEY"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(url)
     data = response.json()
@@ -229,7 +229,7 @@ def send_message(api_key, api_secret, sender, recipient, message):
         
 
 def get_stock_price(symbol):
-    api_key = " VWW74B5AD04N8UEU"
+    api_key = " Your API_KEY"
     url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={api_key}"
     response = requests.get(url)
     data = json.loads(response.text)
@@ -264,7 +264,7 @@ def open_webpage(url):
 
 
 # Replace YOUR_APP_ID with your actual app ID
-app_id = '55A4Y5-Y2YWQWQ355'
+app_id = 'YOUR APP_ID'
 client = wolframalpha.Client(app_id)
 
 def get_wolframalpha_response(query):
@@ -375,7 +375,7 @@ if __name__ == "__main__":
                 cv2.destroyAllWindows()
                 #THIS CASE SEND THE WHATSAPP MESSAGE USING THE PHONE NUMBER             
             elif 'send whatsapp message' in query:
-                kit.sendwhatmsg("+919263830382","this is the testing protocoal",22,59)
+                kit.sendwhatmsg("YOUR PHONE NUMBER","this is the testing protocoal",22,59)
                 #IT WILL CLICK THE PICTURES
             elif 'picture' in query:
                 clickpicture() 
@@ -563,10 +563,10 @@ if __name__ == "__main__":
                     speak(f"Sorry, I could not find weather information for {city}.")
                 #This case is used for sending the message through SMS service
             elif 'send message' in query:
-                api_key = '531bc2e1'
-                api_secret = 'XgEWk8Wc2Wx4P883'
-                sender = '+919263830382'
-                recipient = '+919263830382'
+                api_key = 'YOUR API_KEY'
+                api_secret = 'SECRET ID Provided by APP'
+                sender = 'SENDER NUMBER'
+                recipient = 'RECIVER NUMBER'
                 message = 'Hello This Is A Testing Message Using Python code'
                 send_message(api_key, api_secret, sender, recipient, message)
                 #This case is used for checking the "Stock price"
